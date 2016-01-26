@@ -1,1 +1,1 @@
-var githubUserSearch = angular.module('GitUserSearch', ['ngResource']);
+var app = angular.module('GitUserSearch', ['ngResource']);
