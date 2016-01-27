@@ -3,7 +3,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.get('/', function(request, response) {
