@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start test/karma.conf.js",
     "postinstall": "bower install"
   },
   "repository": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/allimac/ma-angular#readme",
   "devDependencies": {
     "jasmine": "^2.4.1",
+    "jasmine-reporters": "^2.1.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-html-reporter": "^0.2.7",
@@ -31,6 +32,7 @@
     "protractor": "^3.0.0"
   },
   "dependencies": {
+    "bower": "^1.7.7",
     "express": "^4.13.4",
     "http-server": "^0.8.5"
   }
