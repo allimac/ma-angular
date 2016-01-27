@@ -1,6 +1,9 @@
 {
   "name": "angular-tutorial",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.2.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,5 +28,9 @@
     "karma-phantomjs-launcher": "^0.2.3",
     "phantomjs": "^2.1.2",
     "protractor": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "http-server": "^0.8.5"
   }
 }

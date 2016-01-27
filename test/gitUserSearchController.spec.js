@@ -1,38 +1,38 @@
 describe('GitUserSearchController', function() {
+
   beforeEach(module('GitUserSearch'));
 
-  var ctrl;
+  beforeEach(function() {
+    fakeSearch = jasmine.createSpyObj('fakeSearch', ['query']);
+    module({ Search: fakeSearch});
+  });
 
-  beforeEach(inject(function($controller) {
+  var ctrl, scope;
+
+  beforeEach(inject(function($controller, $q, $rootScope) {
     ctrl = $controller('GitUserSearchController');
+    fakeSearch.query.and.returnValue($q.when({
+      data: {
+        items: 'cat'
+      }
+    }));
+    scope = $rootScope;
   }));
 
   it('initialises with an empty search result and term', function() {
     expect(ctrl.searchTerm).toBeUndefined();
+    expect(ctrl.searchResult).toBeUndefined();
   });
 
 
   describe('when searching for a user', function() {
-    var httpBackend;
-
-    beforeEach(inject(function($httpBackend) {
-      httpBackend = $httpBackend;
-      httpBackend.expectGET("https://api.github.com/search/users?access_token="+secretissimo+"&q=hello")
-                .respond({ items: items });
-    }));
-
-    afterEach(function() {
-      httpBackend.verifyNoOutstandingExpectation();
-      httpBackend.verifyNoOutstandingRequest();
-    });
 
     it('displays search result', function() {
       ctrl.searchTerm = 'hello';
       ctrl.doSearch();
-      httpBackend.flush();
-      expect(ctrl.searchResult.items).toEqual(items);
+      scope.$digest();
+      expect(ctrl.searchResult.items).toEqual('cat');
     });
   });
-
 
 });
