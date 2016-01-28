@@ -1,4 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   background-color: #fafafa;
 }
@@ -11,13 +14,14 @@ img {
   padding: 0px;
   display: inline-block;
   width: 200px;
-  height: 220px;
-  margin: 30px;
+  height: 350px;
+  margin: 20px;
   background-color: white;
   border: 0px;
-  box-shadow: 0px 0px 10px #c8c8c8;
+  box-shadow: 0px 0px 7px #c8c8c8;
 }
 
-input {
+.form-control {
   width: 50%;
+  margin: 0 auto;
 }
