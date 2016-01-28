@@ -5,7 +5,7 @@ describe('Github Profile finder', function() {
   var profiles = element.all(by.repeater('user in searchCtrl.searchResult.items'));
 
   beforeEach(function() {
-    browser.get('http://localhost:8080');
+    browser.get('http://localhost:5000');
   });
 
   it('has a title', function() {

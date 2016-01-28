@@ -5,13 +5,11 @@ exports.config = {
     browserName: 'chrome'
   },
   jasmineNodeOpts: {
-    showColors: true, // Use colors in the command line report.
+    showColors: true,
   },
 
   onPrepare: function() {
-
     var jasmineReporters = require('jasmine-reporters');
-
     jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({
       verbosity: 10,
       color: true,
