@@ -12,6 +12,7 @@
     <script src="js/app.js"></script>
     <script src="js/gitUserSearchController.js"></script>
     <script src="js/searchFactory.js"></script>
+    <script src="js/userReposFactory.js"></script>
     <script src="js/token.js"></script>
   </head>
 
@@ -19,17 +20,17 @@
     <div>
       <h1>Find developers!</h1>
       <form class="form-horizontal">
-        <input class="form-control" type="text" ng-change="searchCtrl.doSearch()" ng-model="searchCtrl.searchTerm" ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}">
+        <input class="form-control" type="text" ng-change="searchCtrl.doSearch()" ng-model="searchCtrl.searchTerm" ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}" required>
       </form>
       <h5 > {{searchCtrl.searchResult.total_count}} results for: <em>{{searchCtrl.searchTerm}}</em></h5>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="user in searchCtrl.searchResult.items">
           <img ng-src="{{user.avatar_url}}&s=200">
           <h4><a ng-href="{{user.html_url}}">{{user.login}}</a></h4>
-          <p>30 repos</p>
-          <p><small>last active 2 days ago</small></p>
-          <p>score: {{user.score}}</p>
-          <p>repos: {{user.repos}}</p>
+          <p>{{user.repos.length}}</p>
+          <div ng-repeat="repo in user.repos | limitTo: 3">
+            <p><a ng-href="{{repo.url}}">{{repo.name}}</a></p>
+          </div>
         </li>
       </ul>
     </div>

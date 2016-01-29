@@ -24,7 +24,7 @@ describe('GitUserSearchController', function() {
   describe('when searching for a user', function() {
     it('displays search result', function() {
       ctrl.searchTerm = 'hello';
-      ctrl.doSearch();
+      ctrl.getGithubData();
       scope.$digest();
       expect(ctrl.searchResult.items).toEqual('cat');
     });

@@ -56,17 +56,9 @@ describe('factory: Search', function() {
     expect(search.query).toBeDefined();
   });
 
-
   it('returns search results', function() {
     search.query('tansaku').then(function(response) {
       expect(response.data.items).toEqual(items);
-    });
-    httpBackend.flush();
-  });
-
-  it('returns repos data of all users combined with first source of data', function() {
-    search.full_data('tansaku').then(function(response) {
-      expect(response.data.items[0].repos).toEqual(repos);
     });
     httpBackend.flush();
   });
